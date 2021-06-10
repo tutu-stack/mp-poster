@@ -93,7 +93,8 @@ renderer.tick.add(function () {
 - 移动
 
 ```js
-const actMoveTo = new P.action.MoveTo(10, 10, 1000, P.Easing.Bounce.Out)
+const actMoveTo = new P.action.MoveTo(10, 10, 1000, P.Easing.Bounce.Out/* 贝塞尔设置缓动效果 P.Easing.Cubic.Bezier(0.95, 0.06, 0.05, 0.94) */)
 P.actionManager.runAction(text, actMoveTo)
 ```
+
 
