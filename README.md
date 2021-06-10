@@ -9,7 +9,7 @@
 资源加载
 
 ```js
-let load = new Tu.Loader([
+let load = new P.Loader([
 	{ name: 'backgroundPic', url: 'http://.......backgroundPic.png' }
 ])
 
@@ -26,7 +26,7 @@ load.load()
 创建渲染器
 
 ```js
-const renderer = new Tu.Renderer(
+const renderer = new P.Renderer(
 	'#drawCanvas',
 	{
 		width: 750,
@@ -41,7 +41,7 @@ const renderer = new Tu.Renderer(
 创建容器
 
 ```js
-const container = new Tu.Container()
+const container = new P.Container()
 
 renderer.tick.add(function () {
 	renderer.render(container)
@@ -52,8 +52,8 @@ renderer.run();
 绘制矩形
 
 ```js
-const container = new Tu.Container()
-const rect = new Tu.Rect(
+const container = new P.Container()
+const rect = new P.Rect(
 	300, // 宽
 	300, // 高
 )
@@ -75,13 +75,25 @@ container.addChild(bg);
 绘制文本
 
 ```js
-const text = new Tu.Text('text content')
+const text = new P.Text('text content')
 text.color = '#fff'
 text.fontFamily = 'Comic Sans MS'
 text.fontSize = 20
 container.addChild(text);
 ```
 
+动作
 
+```js
+renderer.tick.add(function () {
+	P.actionManager.update()
+})
+```
 
+- 移动
+
+```js
+const actMoveTo = new P.action.MoveTo(10, 10, 1000, P.Easing.Bounce.Out)
+P.actionManager.runAction(text, actMoveTo)
+```
 
